@@ -2,13 +2,13 @@ const info={
     platforms: [
       {
         name: "leetcode",
-        problems_solved: 755,
+        problems_solved: 800,
         profilelink: "https://leetcode.com/u/Abhiram-06/",
         logo: "https://leetcode.com/static/images/LeetCode_logo.png"
       },
       {
         name: "geeksforgeeks",
-        problems_solved: 216,
+        problems_solved: 250,
         profilelink: "https://www.geeksforgeeks.org/profile/abhiram_06",
         logo: "https://tse3.mm.bing.net/th/id/OIP.8v6j0MJlk2ZYnq0P_ifarAHaHa?pid=Api&P=0&h=180"
       },
