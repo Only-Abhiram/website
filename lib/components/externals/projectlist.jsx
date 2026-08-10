@@ -1,5 +1,13 @@
 const projects = [
   {
+    title: "Talk to CSV",
+    description: "A tool that allows you to talk to a CSV file in simple English. You can upload a CSV file and then ask questions about the data in the file.",
+    liveUrl: "https://talktocsv.abhiram.lol/",
+    githubUrl: "https://github.com/Only-Abhiram/talktocsv",
+    tech: ["React", "TypeScript", "Gemini", "Node"],
+    wip: true
+  },
+  {
     title: "Autoscale",
     description: "A tool that automates Instagram comment replies for creators using Meta Webhooks. Receives real-time events and triggers instant, rule-based responses from the creator's account — no manual effort required.",
     liveUrl: "https://autoscale-nine.vercel.app",
