@@ -1,15 +1,14 @@
 "use client"
-import Image from "next/image";
 import BlurText from '@/lib/components/externals/blurtxt'
-import BlurText2 from '@/lib/components/externals/blurtextnew'
-import BottomNav from '@/lib/components/externals/nav'
-import Skills from '@/lib/components/skills'
-import Projects from '@/lib/components/projects'
 import ProjectsList from '@/lib/components/externals/projectlist'
-import ScrollReveal from '@/lib/components/externals/blurreveal'
 import CodingPlatforms from '@/lib/components/cp'
 import Socials from '@/lib/components/connnect'
+import LeetCodeHeatmap from '@/lib/components/leetcodeHeatMap'
+import Experience from '@/lib/components/experinces'
 import VisitorCounter from '@/lib/components/visitorCount'
+import MinimalButton from '@/lib/components/minimalButton'
+import CodingStats from '@/lib/components/coding'
+import ProfileHeader from '@/lib/components/newprofile'
 export default function Home() {
   function scrollToSection(section: string) {
     const element = document.getElementById(section);
@@ -21,18 +20,13 @@ export default function Home() {
       });
     }
   }
-  const items = [
-    { label: "Home", href: "#home" },
-    { label: "Work", href: "#projects" },
-    { label: "CP", href: "#cp" },
-    { label: "Connect", href: "#connect" },
-  ];
+ 
   return (
-    <>
+    <div >
+      <Wrapper >
 
-      <BottomNav
-        items={items}
-      />
+      </Wrapper>
+     
 
       <div id="home">
         <Wrapper >
@@ -41,22 +35,36 @@ export default function Home() {
 
       </div>
 
+
       {/* home section  */}
 
       <Wrapper >
-        <BlurText text="hi, i am abhiram" className="text-4xl font-extrabold mb-2"></BlurText>
-        {/* <ScrollReveal delay={0}>
-          <p className="text-4xl font-extrabold mb-2">hi, i am abhiram</p>
-        </ScrollReveal> */}
+        <div className="">
+          <ProfileHeader
+          />
+        </div>
+
+      </Wrapper>
+
+
+
+
+      <div id="work">
+        <Wrapper>
+        </Wrapper>
+      </div>
+
+      {/* work */}
+
+      <Wrapper>
+        <div className="text-4xl font-medium ">Experience</div>
       </Wrapper>
       <Wrapper>
-        <BlurText text="I enjoy building backend systems, automating repetitive work, experimenting with AI agents, and solving challenging problems through competitive programming." className="text-lg text-zinc-500"></BlurText>
-
-        {/* <ScrollReveal delay={100}>
-          <p className="text-xl text-zinc-500">I enjoy building backend systems, automating repetitive work, experimenting with AI agents, and solving challenging problems through competitive programming.</p>
-        </ScrollReveal> */}
+     
+        <Experience></Experience>
+        
+        <MinimalButton text={"View All Experiences"} href={"/work"}></MinimalButton>
       </Wrapper>
-
 
 
 
@@ -68,19 +76,12 @@ export default function Home() {
       {/* projects */}
 
       <Wrapper>
-        <BlurText text="Projects" className="text-4xl font-extrabold "></BlurText>
+        <div className="text-4xl font-medium ">Projects</div>
 
-        {/* <ScrollReveal delay={250}>
-          <p className=""></p>
-          </ScrollReveal> */}
       </Wrapper>
       <Wrapper>
-        {/* <ScrollReveal delay={250}> */}
         <ProjectsList>
-
         </ProjectsList>
-        {/* </ScrollReveal> */}
-
       </Wrapper>
 
       <div id="cp">
@@ -92,87 +93,95 @@ export default function Home() {
 
       {/*CP */}
       <Wrapper>
-        <BlurText className="text-4xl font-extrabold " text="Competitive Programming"></BlurText>
+        <div className="text-4xl font-medium ">Competitive Programming</div>
 
 
       </Wrapper>
-      <Wrapper>
-        <CodingPlatforms></CodingPlatforms>
 
+
+      <Wrapper>
+        <LeetCodeHeatmap></LeetCodeHeatmap>
+        <CodingStats></CodingStats>
       </Wrapper>
 
-      <div id="connect">
-        <Wrapper>
 
-        </Wrapper>
-      </div>
-      <Wrapper>
-          
-        <BlurText className="text-4xl font-extrabold " text="Connect"></BlurText>
-      </Wrapper>
-      <Wrapper>
-      <Socials></Socials>    
-      </Wrapper>
-      
-      <Wrapper>
-      </Wrapper>
-      
-      <Wrapper>
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"> */}
-    {/* <SpotifyLastPlayed /> */}
-    <VisitorCounter />
-  {/* </div> */}
-      </Wrapper>
-      
-      <Wrapper>
-      </Wrapper>
-      
-      
-      
-      <Wrapper>
-      </Wrapper>
+
+
+     
+
+
       <Wrapper>
       </Wrapper>
 
 
 
-      
 
 
-
-
-
-
-    </>
+    </div>
   );
 }
+import { useEffect, useRef, useState } from "react";
+export function Wrapper({ children }: { children?: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
-function Wrapper({ children }: { children?: React.ReactNode }) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const stripeStyle = {
     backgroundImage:
-      "repeating-linear-gradient(-45deg, transparent 0px, transparent 4px, #e5e7eb 4px, #e5e7eb 6px)",
+      "repeating-linear-gradient(-45deg, transparent 0px, transparent 4px, #f1f5f9 4px, #f1f5f9 6px)",
   };
 
   const hasChildren = Array.isArray(children)
     ? children.some(Boolean)
     : Boolean(children);
 
+  const base =
+    "md:transition-all md:duration-700 md:ease-out motion-reduce:transition-none";
+
   return (
-    <div className="w-full flex  min-h-[50px] items-stretch ">
+    <div ref={ref} className="w-full flex min-h-12.5 items-stretch">
+      {/* Left column (desktop only) */}
       <div
-        className="w-[10%] border border-gray-300"
+        className={`hidden md:flex md:flex-1 border border-gray-100 ${base} ${visible ? "md:opacity-100 md:translate-x-0" : "md:opacity-0 md:-translate-x-6"
+          }`}
         style={hasChildren ? stripeStyle : {}}
       />
 
+      {/* Middle column: always visible on mobile, animated on md+ */}
       <div
-        className="w-[80%] flex flex-col justify-center border border-gray-300 p-5"
+        className={`w-full md:w-[55%] flex flex-col justify-center border border-gray-100 p-5 md:delay-150 ${base} ${visible ? "md:opacity-100 md:translate-y-0" : "md:opacity-0 md:translate-y-4"
+          }`}
         style={{ ...(!hasChildren ? stripeStyle : {}), isolation: "auto" }}
       >
         {children}
       </div>
 
+      {/* Right column (desktop only) */}
       <div
-        className="w-[10%] border border-gray-300"
+        className={`hidden md:flex md:flex-1 border border-gray-100 ${base} ${visible ? "md:opacity-100 md:translate-x-0" : "md:opacity-0 md:translate-x-6"
+          }`}
         style={hasChildren ? stripeStyle : {}}
       />
     </div>

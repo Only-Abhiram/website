@@ -15,6 +15,15 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
 
   return (
     <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap');
+        @keyframes loaderFadeOut { to { opacity: 0; pointer-events: none; } }
+        @keyframes dotPop { 0%, 100% { transform: scale(0.4); opacity: 0.2; } 50% { transform: scale(1.2); opacity: 1; } }
+        @keyframes orbitSpin { from { transform: rotate(0deg) translateX(38px) rotate(0deg); } to { transform: rotate(360deg) translateX(38px) rotate(-360deg); } }
+        @keyframes labelReveal { from { opacity: 0; letter-spacing: 0.5em; } to { opacity: 1; letter-spacing: 0.22em; } }
+        @keyframes barSweep { from { width: 0%; } to { width: 100%; } }
+      `}</style>
+
       {loading && (
         <div
           style={{
@@ -29,16 +38,6 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
             animation: "loaderFadeOut 0.4s ease forwards 2.6s",
           }}
         >
-          <style>{`
-            @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap');
-            @keyframes loaderFadeOut { to { opacity: 0; pointer-events: none; } }
-            @keyframes dotPop { 0%, 100% { transform: scale(0.4); opacity: 0.2; } 50% { transform: scale(1.2); opacity: 1; } }
-            @keyframes orbitSpin { from { transform: rotate(0deg) translateX(38px) rotate(0deg); } to { transform: rotate(360deg) translateX(38px) rotate(-360deg); } }
-            @keyframes labelReveal { from { opacity: 0; letter-spacing: 0.5em; filter: blur(6px); } to { opacity: 1; letter-spacing: 0.22em; filter: blur(0); } }
-            @keyframes barSweep { from { width: 0%; } to { width: 100%; } }
-            @keyframes childrenReveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-          `}</style>
-
           <div style={{ position: "relative", width: 90, height: 90, marginBottom: 36 }}>
             {[...Array(8)].map((_, i) => (
               <span key={i} style={{
@@ -79,11 +78,8 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
         </div>
       )}
 
-      {!loading && (
-        <div style={{ animation: "childrenReveal 0.5s ease forwards" }}>
-          {children}
-        </div>
-      )}
+      {/* Always fully visible — never opacity:0. Loader is only an overlay. */}
+      {children}
     </>
   );
 }
