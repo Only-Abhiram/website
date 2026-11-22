@@ -8,7 +8,7 @@ export default function projects() {
         <Wrapper>
         </Wrapper>
         <Wrapper ><div className="text-4xl font-medium">Projects</div></Wrapper>
-        
+
         <Wrapper>
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
 
@@ -37,28 +37,28 @@ const projectsList = [
         serial: 1,
         title: "Distributed Rate Limiter",
         description:
-            "A distributed rate limiting system with multiple algorithms, atomic Redis Lua scripts, response caching and horizontally scalable API gateways.",
+            "Built a distributed API gateway using Node.js, Fastify, Redis, and Nginx, implementing Fixed Window, Token Bucket, and Sliding Window rate-limiting algorithms with atomic Redis Lua scripts to ensure consistent quota enforcement across multiple gateway replicas. Integrated Redis response caching with a 30-second TTL and containerized the system using Docker Compose. Load-tested with k6, achieving 3,438 RPS, a 99.99% cache hit ratio, and zero HTTP failures at 50 concurrent virtual users.",
         tech: ["Node.js", "Fastify", "Redis", "Lua", "Docker", "Nginx"],
         image: "RateLimiter.png",
-        link: "https://example.com",
-        github: "https://github.com/only-abhiram"
+        link: "",
+        github: "https://github.com/Only-Abhiram/distributed-api-rate-limiter"
     },
 
     {
         serial: 2,
         title: "Check Package MCP",
         description:
-            "An MCP server that verifies AI-recommended packages across multiple package registries.",
+            "Developed a remote Model Context Protocol (MCP) server that enables AI coding agents to verify software dependencies and detect hallucinated, non-existent, or slopsquatted packages before installation. Integrated six package registries — npm, PyPI, Maven Central, NuGet, Cargo, and Go — into a unified verification tool that checks package existence, version availability, and deprecation status. Designed structured responses with five information fields and three reason codes, and deployed the serverless application on Cloudflare Workers at zero monthly hosting cost.",
         tech: ["TypeScript", "Cloudflare Workers", "MCP"],
         image: "CheckPackage.png",
         link: "https://checkpackage.abhiram.lol",
-        github: ""
+        github: "https://github.com/Only-Abhiram/Check-Package-MCP-Server"
     },
 
     {
         serial: 3,
         title: "Talk to CSV",
-        description: "A tool that allows you to talk to a CSV file in simple English. You can upload a CSV file and then ask questions about the data in the file.",
+        description: "Built a full-stack analytics application that allows users to upload CSV files and query their data using natural language. Implemented schema inference and isolated, session-specific SQLite databases, integrating Google's Gemini API to translate user questions into executable SQL queries. Designed a multi-layer SQL security pipeline with keyword deny-listing, single-statement enforcement, read-only execution, and automatic row limits to ensure safe execution of LLM-generated queries.",
         link: "https://talktocsv.abhiram.lol/",
         github: "https://github.com/Only-Abhiram/talktocsv",
         tech: ["React.js", "TypeScript", "Gemini", "Node.js", "SQLite",],
@@ -67,16 +67,16 @@ const projectsList = [
     {
         serial: 4,
         title: "Autoscale",
-        description: "A tool that automates Instagram comment replies for creators using Meta Webhooks. Receives real-time events and triggers instant, rule-based responses from the creator's account — no manual effort required.",
+        description: "Developed an event-driven Instagram automation platform using Next.js, Node.js, MongoDB, and Meta Webhooks to process real-time comment events. Integrated Instagram Graph API and Meta account authorization to enable creators to automate public comment replies and direct messages. Designed a configurable rules engine that evaluates incoming comments against user-defined instructions and triggers appropriate automated responses, reducing manual audience engagement efforts.",
         link: "https://autoscale-nine.vercel.app",
         github: "https://github.com/Only-Abhiram/autoscale",
         tech: ["React", "TypeScript", "Redis"],
-        image: ""
+        image: "Autoscale.png"
     },
     {
         serial: 5,
         title: "Ask Better",
-        description: "A Chrome Extension that refines your raw input into clear, powerful prompts before sending — works across ChatGPT, Gemini, and Claude so you get better outputs on the first try.",
+        description: "Built an AI-powered Chrome extension that transforms vague user inputs into clear, structured, and context-rich prompts using Google's Gemini API. Integrated the Chrome Extensions API to provide seamless prompt refinement across ChatGPT, Gemini, and Claude. Designed to improve prompt quality, reduce repetitive interactions, and help users obtain more relevant AI-generated responses with less manual effort.",
         link: "",
         github: "https://github.com/Only-Abhiram/Ask_Better_Chrome_Extension",
         tech: ["React", "TypeScript", "Redis"],

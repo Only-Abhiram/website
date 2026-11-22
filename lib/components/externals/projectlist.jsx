@@ -12,31 +12,31 @@ const projectsList = [
     serial: 1,
     title: "Distributed Rate Limiter",
     description:
-      "A distributed rate limiting system with multiple algorithms, atomic Redis Lua scripts, response caching and horizontally scalable API gateways.",
+      "Built a distributed API gateway using Node.js, Fastify, Redis, and Nginx, implementing Fixed Window, Token Bucket, and Sliding Window rate-limiting algorithms with atomic Redis Lua scripts to ensure consistent quota enforcement across multiple gateway replicas. Integrated Redis response caching with a 30-second TTL and containerized the system using Docker Compose. Load-tested with k6, achieving 3,438 RPS, a 99.99% cache hit ratio, and zero HTTP failures at 50 concurrent virtual users.",
     tech: ["Node.js", "Fastify", "Redis", "Lua", "Docker", "Nginx"],
     image: "RateLimiter.png",
-    link: "https://example.com",
-    github: "https://github.com/only-abhiram"
+    link: "",
+    github: "https://github.com/Only-Abhiram/distributed-api-rate-limiter"
   },
   {
     serial: 3,
     title: "Talk to CSV",
     description:
-      "An AI-powered application that allows users to upload CSV files and query their data using natural language.",
+      "Built a full-stack analytics application that allows users to upload CSV files and query their data using natural language. Implemented schema inference and isolated, session-specific SQLite databases, integrating Google's Gemini API to translate user questions into executable SQL queries. Designed a multi-layer SQL security pipeline with keyword deny-listing, single-statement enforcement, read-only execution, and automatic row limits to ensure safe execution of LLM-generated queries.",
     tech: ["React", "Node.js", "Express", "SQLite", "Gemini"],
     image: "TalkToCsv.png",
     link: "https://talktocsv.abhiram.lol",
-    github: "https://github.com/only-abhiram"
+    github: "https://github.com/Only-Abhiram/talktocsv"
   },
   {
     serial: 2,
     title: "Check Package MCP",
     description:
-      "An MCP server that verifies AI-recommended packages across multiple package registries.",
+      "Developed a remote Model Context Protocol (MCP) server that enables AI coding agents to verify software dependencies and detect hallucinated, non-existent, or slopsquatted packages before installation. Integrated six package registries — npm, PyPI, Maven Central, NuGet, Cargo, and Go — into a unified verification tool that checks package existence, version availability, and deprecation status. Designed structured responses with five information fields and three reason codes, and deployed the serverless application on Cloudflare Workers at zero monthly hosting cost.",
     tech: ["TypeScript", "Cloudflare Workers", "MCP"],
     image: "CheckPackage.png",
     link: "https://checkpackage.abhiram.lol",
-    github: ""
+    github: "https://github.com/Only-Abhiram/Check-Package-MCP-Server"
   }
 ];
 
