@@ -39,7 +39,9 @@ export default function CodingStats() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/coding-stats")
+    fetch("/api/coding-stats", {
+      cache: "no-store",
+    })
       .then((res) => {
         if (!res.ok) throw new Error("Failed");
         return res.json();

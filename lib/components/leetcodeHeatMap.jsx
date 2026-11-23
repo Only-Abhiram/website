@@ -23,7 +23,9 @@ export default function LeetCodeHeatmap() {
   useEffect(() => {
     async function loadCalendar() {
       try {
-        const res = await fetch("/api/leetcode-heatmap");
+        const res = await fetch("/api/leetcode-heatmap", {
+          cache: "no-store",
+        });
 
         if (!res.ok) throw new Error("Unable to fetch LeetCode activity");
 

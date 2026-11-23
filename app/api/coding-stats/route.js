@@ -9,7 +9,6 @@ const USERNAMES = {
   async function getJSON(url, options = {}) {
     const response = await fetch(url, {
       ...options,
-      next: { revalidate: 3600 },
       cache: "no-store",
     });
   

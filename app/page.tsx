@@ -1,11 +1,7 @@
 "use client"
-import BlurText from '@/lib/components/externals/blurtxt'
 import ProjectsList from '@/lib/components/externals/projectlist'
-import CodingPlatforms from '@/lib/components/cp'
-import Socials from '@/lib/components/connnect'
 import LeetCodeHeatmap from '@/lib/components/leetcodeHeatMap'
 import Experience from '@/lib/components/experinces'
-import VisitorCounter from '@/lib/components/visitorCount'
 import MinimalButton from '@/lib/components/minimalButton'
 import CodingStats from '@/lib/components/coding'
 import ProfileHeader from '@/lib/components/newprofile'
