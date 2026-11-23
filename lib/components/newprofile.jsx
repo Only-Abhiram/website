@@ -25,7 +25,7 @@ const socials = [
   {
     name: "X",
     logo: "https://img.icons8.com/?size=100&id=fJp7hepMryiw&format=png&color=000000",
-    href: "https://x.com/yourhandle",
+    href: "https://x.com/abhiram_0",
   },
   {
     name:"Gmail",
