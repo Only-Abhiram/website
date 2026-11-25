@@ -38,7 +38,7 @@ const projectsList = [
         title: "Distributed Rate Limiter",
         description:
             "Built a distributed API gateway using Node.js, Fastify, Redis, and Nginx, implementing Fixed Window, Token Bucket, and Sliding Window rate-limiting algorithms with atomic Redis Lua scripts to ensure consistent quota enforcement across multiple gateway replicas. Integrated Redis response caching with a 30-second TTL and containerized the system using Docker Compose. Load-tested with k6, achieving 3,438 RPS, a 99.99% cache hit ratio, and zero HTTP failures at 50 concurrent virtual users.",
-        tech: ["Node.js", "Fastify", "Redis", "Lua", "Docker", "Nginx"],
+        tech: ["Node.js", "Fastify", "Redis", "Lua", "Docker", "Nginx", "k6"],
         image: "RateLimiter.png",
         link: "",
         github: "https://github.com/Only-Abhiram/distributed-api-rate-limiter"
@@ -49,7 +49,7 @@ const projectsList = [
         title: "Check Package MCP",
         description:
             "Developed a remote Model Context Protocol (MCP) server that enables AI coding agents to verify software dependencies and detect hallucinated, non-existent, or slopsquatted packages before installation. Integrated six package registries — npm, PyPI, Maven Central, NuGet, Cargo, and Go — into a unified verification tool that checks package existence, version availability, and deprecation status. Designed structured responses with five information fields and three reason codes, and deployed the serverless application on Cloudflare Workers at zero monthly hosting cost.",
-        tech: ["TypeScript", "Cloudflare Workers", "MCP"],
+        tech: ["TypeScript", "Cloudflare Workers", "MCP", "package registries"],
         image: "CheckPackage.png",
         link: "https://checkpackage.abhiram.lol",
         github: "https://github.com/Only-Abhiram/Check-Package-MCP-Server"

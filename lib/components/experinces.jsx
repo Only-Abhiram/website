@@ -8,8 +8,8 @@ const experiences = [
         from: "May 2025",
         to: "September 2025",
         description: [
-            "Developed 4+ browser-based developer tools using JavaScript, HTML and CSS.",
-            "Built reusable and responsive frontend components using Next.js.",
+            "Developed 4+ browser-based developer utilities including Base64 Encoder/Decoder, SHA-256/SHA-512 Hash Generator, HTML/CSS/JS Minifiers, and JSON Viewer using JavaScript, HTML, CSS, and Tailwind CSS.",
+            "Implemented API-independent client-side processing workflows for encoding, hashing, and minification, enabling efficient execution without server-side processing or backend dependencies.",
         ],
     }
 ];
